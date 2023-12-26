@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <title>Permissions</title>
+        <title>Permissions - Aplikasi Kasir</title>
     </Head>
     <main class="c-main">
         <div class="container-fluid">
@@ -12,9 +12,9 @@
                                 <span class="font-weight-bold"><i class="fa fa-key"></i> PERMISSIONS</span>
                             </div>
                             <div class="card-body">
-                                <form>
+                                <form @submit.prevent="handleSearch">
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" placeholder="search by permission name...">
+                                        <input type="text" class="form-control" v-model="search" placeholder="search by permission name...">
                                         <button class="btn btn-primary input-group-text" type="submit"> <i class="fa fa-search me-2"></i> SEARCH</button>
                                     </div>
                                 </form>
@@ -50,6 +50,12 @@
     //import Heade and Link from Inertia
     import { Head, Link } from '@inertiajs/inertia-vue3';
 
+    //import ref from vue
+    import { ref } from 'vue';
+
+    //import inertia adapter
+    import { Inertia } from '@inertiajs/inertia';
+
     export default {
         //layout
         layout: LayoutApp,
@@ -64,6 +70,28 @@
         //props
         props: {
             permissions: Object,
+        },
+
+        setup() {
+
+            //define state search
+            const search = ref('' || (new URL(document.location)).searchParams.get('q'));
+
+            //define method search
+            const handleSearch = () => {
+                Inertia.get('/apps/permissions', {
+
+                    //send params "q" with value from state "search"
+                    q: search.value,
+                });
+            }
+
+            //return
+            return {
+                search,
+                handleSearch,
+            }
+
         }
     }
 </script>
