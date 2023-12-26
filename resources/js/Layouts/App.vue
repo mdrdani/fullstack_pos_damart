@@ -2,7 +2,7 @@
     <div class="c-app">
       <div class="c-sidebar c-sidebar-dark c-sidebar-fixed" :class="{ 'c-sidebar-lg-show': !$page.url.startsWith('/apps/transactions') }" id="sidebar">
         <div class="c-sidebar-brand d-lg-down-none" style="background: #894b9d;">
-          <img src="/images/cash-machine.png" class="bg-light rounded shadow-sm p-1" width="35"> <span class="ml-2 font-weight-bold">POS DAMART</span>
+          <img src="/images/cash-machine.png" class="bg-light rounded shadow-sm p-1" width="35"> <span class="ml-2 font-weight-bold">Toko DaMart</span>
         </div>
 
         <!-- sidebar -->
@@ -23,7 +23,7 @@
           <!-- end content -->
 
           <footer class="c-footer">
-            <div><strong>POS DAMART</strong> &copy; 2022 - posdamart.com.</div>
+            <div><strong>Toko DaMart</strong> &copy; 2023 - damart.com.</div>
           </footer>
         </div>
       </div>
